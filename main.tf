@@ -44,7 +44,7 @@ resource "openstack_compute_instance_v2" "oauthapp" {
   name            = local.resource_prefix
   image_id        = var.image_id
   flavor_id       = var.instance_type
-  user_data       = file("${path.module}/../../../userdata/oauth/userdata.sh")
+  user_data       = var.user_data
   security_groups = var.security_groups
 
   metadata = {

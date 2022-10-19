@@ -3,44 +3,60 @@ locals {
 }
 
 variable "image_id" {
-  type = string
+  description = "OpenStack image ID"
+  type        = string
 }
 
 variable "project_prefix" {
-  type = string
+  description = "Prefix to be added to all resource names"
+  type        = string
 }
 
 variable "environment" {
-  type = string
+  description = "Blue (`b`) or Green (`g`) environment"
+  type        = string
 }
 
 variable "instance_type" {
-  type = string
+  description = "The OpenStack instance flavour ID"
+  type        = string
 }
 
 variable "public_hostname" {
-  type = string
+  description = "The FQDN of the service to be deployed"
+  type        = string
 }
 
 variable "proxy_domain" {
-  type = string
+  description = "The WMCS domain to deploy the proxy into"
+  type        = string
 }
 
 variable "network" {
-  type = string
+  description = "The OpenStack network to connect the instance to"
+  type        = string
+}
+
+variable "user_data" {
+  description = "User data to apply to the instance"
+  type        = string
+  default     = null
 }
 
 variable "security_groups" {
-  type    = list(string)
-  default = []
+  description = "A list of security group names to apply to the instance"
+  type        = list(string)
+  default     = []
 }
 
 variable "app_snapshot_name" {
-  type    = string
-  default = null
+  description = "The name of a volume snapshot to base the application volume on"
+  type        = string
+  default     = null
 }
 
 variable "database_snapshot_name" {
-  type    = string
-  default = null
+  description = "The name of a volume snapshot to base the database volume on"
+  type        = string
+  default     = null
 }
