@@ -59,10 +59,6 @@ resource "openstack_compute_instance_v2" "oauthapp" {
 
   lifecycle {
     ignore_changes = [image_id]
-    replace_triggered_by = [
-      openstack_compute_volume_attach_v2.oauth-app,
-      openstack_compute_volume_attach_v2.oauth-db,
-    ]
   }
 }
 
