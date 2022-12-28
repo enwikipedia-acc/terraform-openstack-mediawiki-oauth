@@ -37,12 +37,6 @@ variable "network" {
   type        = string
 }
 
-variable "user_data" {
-  description = "User data to apply to the instance"
-  type        = string
-  default     = null
-}
-
 variable "security_groups" {
   description = "A list of security group names to apply to the instance"
   type        = list(string)
