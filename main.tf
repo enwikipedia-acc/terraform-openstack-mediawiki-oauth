@@ -48,8 +48,9 @@ resource "openstack_compute_instance_v2" "oauthapp" {
   security_groups = var.security_groups
 
   metadata = {
-    publicdns = var.public_hostname
-    terraform = "Yes"
+    publicdns   = var.public_hostname
+    terraform   = "Yes"
+    environment = var.environment
   }
 
   network {
