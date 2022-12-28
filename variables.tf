@@ -43,12 +43,6 @@ variable "security_groups" {
   default     = []
 }
 
-variable "app_snapshot_name" {
-  description = "The name of a volume snapshot to base the application volume on"
-  type        = string
-  default     = null
-}
-
 variable "database_snapshot_name" {
   description = "The name of a volume snapshot to base the database volume on"
   type        = string
