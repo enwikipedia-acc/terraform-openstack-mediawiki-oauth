@@ -48,3 +48,8 @@ variable "database_snapshot_name" {
   type        = string
   default     = null
 }
+
+variable "dns_zone_id" {
+  description = "The DNS zone ID to register the instance name in"
+  default = null
+}
