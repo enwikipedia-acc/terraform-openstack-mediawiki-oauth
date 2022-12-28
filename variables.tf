@@ -2,8 +2,8 @@ locals {
   resource_prefix = "${var.project_prefix}-oauth-${var.environment}"
 }
 
-variable "image_id" {
-  description = "OpenStack image ID"
+variable "image_name" {
+  description = "Name of the OpenStack image to deploy. Changes to this value will *not* trigger a rebuild of the instance."
   type        = string
 }
 
