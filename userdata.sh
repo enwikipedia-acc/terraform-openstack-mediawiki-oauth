@@ -20,10 +20,10 @@ MIME-Version: 1.0
 Content-Type: text/x-shellscript; charset="us-ascii"
 #!/bin/bash -ex
 
-git clone https://github.com/enwikipedia-acc/tf.git /opt/provisioning
+git clone https://github.com/enwikipedia-acc/ansible-oauth.git /opt/provisioning
 
-ln -sf /opt/provisioning/ansible/provision-oauth.sh /usr/local/bin/acc-provision
-chmod a+rx /opt/provisioning/ansible/provision-oauth.sh
+ln -sf /opt/provisioning/provision-oauth.sh /usr/local/bin/acc-provision
+chmod a+rx /opt/provisioning/provision-oauth.sh
 
 acc-provision
 
