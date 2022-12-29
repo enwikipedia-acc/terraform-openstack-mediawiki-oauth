@@ -59,9 +59,7 @@ resource "openstack_compute_volume_attach_v2" "oauth-db" {
 }
 
 resource "openstack_dns_recordset_v2" "oauthapp" {
-  count = var.dns_zone == null ? 0 : 1
-
-  name    = "${local.resource_prefix}.${var.dns_zone.name}"
+  name    = local.dns_name
   zone_id = var.dns_zone.id
   ttl     = 180
   type    = "A"

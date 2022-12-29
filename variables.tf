@@ -1,5 +1,6 @@
 locals {
   resource_prefix = "${var.project_prefix}-oauth-${var.environment}"
+  dns_name        = "${local.resource_prefix}.${var.dns_zone.name}"
 }
 
 variable "image_name" {
@@ -40,7 +41,7 @@ variable "network" {
 variable "security_groups" {
   description = "A list of security group names to apply to the instance"
   type        = list(string)
-  default     = []
+  default     = ["default"]
 }
 
 variable "database_snapshot_name" {
@@ -55,5 +56,4 @@ variable "dns_zone" {
     id   = string,
     name = string,
   })
-  default = null
 }
