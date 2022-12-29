@@ -21,7 +21,7 @@ data "openstack_blockstorage_snapshot_v3" "db-snapshot" {
 }
 
 resource "openstack_blockstorage_volume_v3" "oauth-db" {
-  name        = "${local.resource_prefix}-database"
+  name        = "${var.resource_prefix}-database"
   description = "OAuth MediaWiki database; managed by Terraform"
   size        = 2
 
@@ -29,7 +29,7 @@ resource "openstack_blockstorage_volume_v3" "oauth-db" {
 }
 
 resource "openstack_compute_instance_v2" "oauthapp" {
-  name            = local.resource_prefix
+  name            = var.resource_prefix
   image_id        = data.openstack_images_image_v2.image.id
   flavor_id       = var.instance_type
   user_data       = file("${path.module}/userdata.sh")
@@ -59,8 +59,8 @@ resource "openstack_compute_volume_attach_v2" "oauth-db" {
 }
 
 resource "openstack_dns_recordset_v2" "oauthapp" {
-  name    = local.dns_name
-  zone_id = var.dns_zone.id
+  name    = var.dns_name
+  zone_id = var.dns_zone_id
   ttl     = 180
   type    = "A"
   records = [openstack_compute_instance_v2.oauthapp.access_ip_v4]

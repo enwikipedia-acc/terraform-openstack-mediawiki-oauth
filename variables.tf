@@ -1,20 +1,20 @@
-locals {
-  resource_prefix = "${var.project_prefix}-oauth-${var.environment}"
-  dns_name        = "${local.resource_prefix}.${var.dns_zone.name}"
-}
-
 variable "image_name" {
   description = "Name of the OpenStack image to deploy. Changes to this value will *not* trigger a rebuild of the instance."
   type        = string
 }
 
-variable "project_prefix" {
+variable "resource_prefix" {
   description = "Prefix to be added to all resource names"
   type        = string
 }
 
+variable "dns_name" {
+  description = "Instance DNS FQDN"
+  type        = string
+}
+
 variable "environment" {
-  description = "Blue (`b`) or Green (`g`) environment"
+  description = "'blue' or 'green' environment"
   type        = string
 }
 
@@ -50,10 +50,7 @@ variable "database_snapshot_name" {
   default     = null
 }
 
-variable "dns_zone" {
-  description = "The DNS zone to register the instance name in"
-  type = object({
-    id   = string,
-    name = string,
-  })
+variable "dns_zone_id" {
+  description = "The DNS zone ID to register the instance name in"
+  type = string
 }
