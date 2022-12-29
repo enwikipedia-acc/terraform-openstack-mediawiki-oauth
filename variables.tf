@@ -49,7 +49,11 @@ variable "database_snapshot_name" {
   default     = null
 }
 
-variable "dns_zone_id" {
-  description = "The DNS zone ID to register the instance name in"
+variable "dns_zone" {
+  description = "The DNS zone to register the instance name in"
+  type = object({
+    id   = string,
+    name = string,
+  })
   default = null
 }
