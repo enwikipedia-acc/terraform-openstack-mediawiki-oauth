@@ -8,7 +8,6 @@ Content-Type: text/x-shellscript; charset="us-ascii"
 #cloud-config
 version: v1
 packages_update: true
-packages_upgrade: true
 packages:
   - ansible
   - git
