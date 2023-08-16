@@ -48,9 +48,3 @@ variable "dns_zone_id" {
   description = "The DNS zone ID to register the instance name in"
   type        = string
 }
-
-variable "prevent_destroy" {
-  description = "Prevent destruction of the volume attachment. Make sure the disk is unmounted first, before trying to detach."
-  type        = bool
-  default     = true
-}
