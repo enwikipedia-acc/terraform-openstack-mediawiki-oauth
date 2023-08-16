@@ -24,6 +24,7 @@ git clone https://github.com/enwikipedia-acc/ansible-oauth.git /opt/provisioning
 ln -sf /opt/provisioning/provision-oauth.sh /usr/local/bin/acc-provision
 chmod a+rx /opt/provisioning/provision-oauth.sh
 
-acc-provision
+# Don't do provisioning immediately; we need the disk image to be cloned from the source system.
+# acc-provision
 
 --==BOUNDARY==--
